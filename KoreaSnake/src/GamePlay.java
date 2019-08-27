@@ -42,12 +42,12 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 	private ImageIcon taibodyimage;
 
 	private int[] enemyxpos = { 50, 100, 150, 200, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650 };
-	private int[] enemyypos = { 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750 }; // ¤w±NÀY³]¬°50*50¡A©Ò¥H«á­±¥²¶·¬°(¤j©ógameplay¤WÃä¬É215)+50ªº­¿¼Æ
+	private int[] enemyypos = { 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750 }; // ï¿½wï¿½Nï¿½Yï¿½]ï¿½ï¿½50*50ï¿½Aï¿½Ò¥Hï¿½á­±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½jï¿½ï¿½gameplayï¿½Wï¿½ï¿½ï¿½215)+50ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	private ImageIcon enemyimage;
-	private Random random = new Random(); // ÀH¾÷ª÷¹ô±¼¸¨
+	private Random random = new Random(); // ï¿½Hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	private int xpos = random.nextInt(15); // 15¬O¤W­zx¼Æ¦Cªº¼Æ¦r¼Æ¶q
+	private int xpos = random.nextInt(15); // 15ï¿½Oï¿½Wï¿½zxï¿½Æ¦Cï¿½ï¿½ï¿½Æ¦rï¿½Æ¶q
 	private int ypos = random.nextInt(11);
 
 	private int score = 0;
@@ -91,12 +91,12 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 		titleImage.paintIcon(this, g, 24, 0);
 
 		// draw border for gameplay
-		playImage = new ImageIcon("universe1.png"); // ¥i§ë¹L¥[ªø¹Ï¤ù¼e«×¸Ñ¨M
+		playImage = new ImageIcon("universe1.png"); // ï¿½iï¿½ï¿½Lï¿½[ï¿½ï¿½ï¿½Ï¤ï¿½ï¿½eï¿½×¸Ñ¨M
 		playImage.paintIcon(this, g, 24, 215);
 
 		// draw scores
 		g.setColor(Color.WHITE);
-		g.setFont(new Font("arial", Font.PLAIN, 14));// ¦r«¬
+		g.setFont(new Font("arial", Font.PLAIN, 14));// ï¿½rï¿½ï¿½
 		g.drawString("Scores:  " + score, 550, 150);
 
 		// draw length
@@ -117,44 +117,48 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 				taibodyimage.paintIcon(this, g, taixlength[b] - 230, taiylength[b] - 100);
 			}
 			if (b != 0) {
-				taibodyimage = new ImageIcon("bomb.gif"); // ¥x»Ê¨­Åé
+				taibodyimage = new ImageIcon("bomb.gif"); // ï¿½xï¿½Ê¨ï¿½ï¿½ï¿½
 				// taibodyimage.paintIcon(this, g, taixlength[b], taiylength[b]);
 
 			}
 		}
 
 		for (int a = 0; a < lengthofsnake; a++) {
-			if (a == 0) { // ÀY
+			if (a == 0) { // ï¿½Y
 				if (right) {
-					rightmouth = new ImageIcon("rightmouth.png"); // ©¹¥k
+					rightmouth = new ImageIcon("rightmouth.png"); // ï¿½ï¿½ï¿½k
 					rightmouth.paintIcon(this, g, snakexlength[a], snakeylength[a]);
-				} else if (left) {
-					leftmouth = new ImageIcon("leftmouth.png"); // ©¹¥ª
+				} 
+				else if (left) {
+					leftmouth = new ImageIcon("leftmouth.png"); // ï¿½ï¿½ï¿½ï¿½
 					leftmouth.paintIcon(this, g, snakexlength[a], snakeylength[a]);
-				} else if (up) {
-					upmouth = new ImageIcon("upmouth.png"); // ©¹¤W
+				}
+				else if (up) {
+					upmouth = new ImageIcon("upmouth.png"); // ï¿½ï¿½ï¿½W
 					upmouth.paintIcon(this, g, snakexlength[a], snakeylength[a]);
-				} else if (down) {
-					downmouth = new ImageIcon("downmouth.png"); // ©¹¤U
+				} 
+				else if (down) {
+					downmouth = new ImageIcon("downmouth.png"); // ï¿½ï¿½ï¿½U
 					downmouth.paintIcon(this, g, snakexlength[a], snakeylength[a]);
-				} else {
-					rightmouth = new ImageIcon("rightmouth.png"); // ¥¼²¾°Ê®Éªº¼Ë»ª
+				} 
+				else {
+					rightmouth = new ImageIcon("rightmouth.png"); // ï¿½ï¿½ï¿½ï¿½ï¿½Ê®Éªï¿½ï¿½Ë»ï¿½
 					rightmouth.paintIcon(this, g, snakexlength[a], snakeylength[a]);
 				}
 			}
 
 			if (a != 0) {
-				snakeimage = new ImageIcon("fishbody.png"); // ¨­Åé
+				snakeimage = new ImageIcon("fishbody.png"); // ï¿½ï¿½ï¿½ï¿½
 				snakeimage.paintIcon(this, g, snakexlength[a], snakeylength[a]);
 			}
 		}
 
-		enemyimage = new ImageIcon("coins.gif"); // ¦Y±oª÷¹ôÅÜ¨­Åé
+		enemyimage = new ImageIcon("coins.gif"); // ï¿½Yï¿½oï¿½ï¿½ï¿½ï¿½ï¿½Ü¨ï¿½ï¿½ï¿½
 
-		if ((enemyxpos[xpos] == snakexlength[0]) && enemyypos[ypos] == snakeylength[0]) { // ÀY¸I¨ìª÷¹ô©Ò¦b¤è®æ§Y±o¤À
+		if ((enemyxpos[xpos] == snakexlength[0]) && enemyypos[ypos] == snakeylength[0]) { // ï¿½Yï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò¦bï¿½ï¿½ï¿½Yï¿½oï¿½ï¿½
 			score++;
 			lengthofsnake++;
-			xpos = random.nextInt(15); // enemyxpos¦@¦³15­Ó¼Æ­È
+			xpos = random.nextInt(15); // enemyxposï¿½@ï¿½ï¿½15ï¿½Ó¼Æ­ï¿½
 			ypos = random.nextInt(11);
 		}
 
@@ -347,7 +351,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 	}
 
 	@Override
-	public void keyPressed(KeyEvent e) { // Áä½L¾Þ§@³D
+	public void keyPressed(KeyEvent e) { // ï¿½ï¿½Lï¿½Þ§@ï¿½D
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 			moves=0;
 			score=0;
