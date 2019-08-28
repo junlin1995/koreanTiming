@@ -16,7 +16,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
 	private static final Color Color = null;
 	
-	KoreaFish snake = new KoreaFish();
+	KoreaFish koreasnake = new KoreaFish();
 	
 	
 	private boolean left = false;
@@ -73,8 +73,8 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 	public void paint(Graphics g) {
 
 		if (moves == 0) {
-			snakexlength = snake.getXlength();
-			snakeylength = snake.getYlength();
+			snakexlength = koreasnake.getXlength();
+			snakeylength = koreasnake.getYlength();
 
 			
 		}
