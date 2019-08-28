@@ -17,6 +17,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 	private static final Color Color = null;
 	private int[] snakexlength = new int[750];
 	private int[] snakeylength = new int[750];
+	
 	private int[] taixlength = new int[750];
 	private int[] taiylength = new int[750];
 
@@ -42,12 +43,12 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 	private ImageIcon taibodyimage;
 
 	private int[] enemyxpos = { 50, 100, 150, 200, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650 };
-	private int[] enemyypos = { 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750 }; // �w�N�Y�]��50*50�A�ҥH�᭱������(�j��gameplay�W���215)+50������
+	private int[] enemyypos = { 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750 }; 
 
 	private ImageIcon enemyimage;
-	private Random random = new Random(); // �H����������
+	private Random random = new Random();
 
-	private int xpos = random.nextInt(15); // 15�O�W�zx�ƦC���Ʀr�ƶq
+	private int xpos = random.nextInt(15);
 	private int ypos = random.nextInt(11);
 
 	private int score = 0;
@@ -91,12 +92,12 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 		titleImage.paintIcon(this, g, 24, 0);
 
 		// draw border for gameplay
-		playImage = new ImageIcon("universe1.png"); // �i��L�[���Ϥ��e�׸ѨM
+		playImage = new ImageIcon("universe1.png"); 
 		playImage.paintIcon(this, g, 24, 215);
 
 		// draw scores
 		g.setColor(Color.WHITE);
-		g.setFont(new Font("arial", Font.PLAIN, 14));// �r��
+		g.setFont(new Font("arial", Font.PLAIN, 14));
 		g.drawString("Scores:  " + score, 550, 150);
 
 		// draw length
@@ -117,54 +118,54 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 				taibodyimage.paintIcon(this, g, taixlength[b] - 230, taiylength[b] - 100);
 			}
 			if (b != 0) {
-				taibodyimage = new ImageIcon("bomb.gif"); // �x�ʨ���
+				taibodyimage = new ImageIcon("bomb.gif"); 
 				// taibodyimage.paintIcon(this, g, taixlength[b], taiylength[b]);
 
 			}
 		}
 
 		for (int a = 0; a < lengthofsnake; a++) {
-			if (a == 0) { // �Y
+			if (a == 0) { 
 				if (right) {
-					rightmouth = new ImageIcon("rightmouth.png"); // ���k
+					rightmouth = new ImageIcon("rightmouth.png"); 
 					rightmouth.paintIcon(this, g, snakexlength[a], snakeylength[a]);
 				} 
 				else if (left) {
-					leftmouth = new ImageIcon("leftmouth.png"); // ����
+					leftmouth = new ImageIcon("leftmouth.png"); 
 					leftmouth.paintIcon(this, g, snakexlength[a], snakeylength[a]);
 				}
 				else if (up) {
-					upmouth = new ImageIcon("upmouth.png"); // ���W
+					upmouth = new ImageIcon("upmouth.png"); 
 					upmouth.paintIcon(this, g, snakexlength[a], snakeylength[a]);
 				} 
 				else if (down) {
-					downmouth = new ImageIcon("downmouth.png"); // ���U
+					downmouth = new ImageIcon("downmouth.png"); 
 					downmouth.paintIcon(this, g, snakexlength[a], snakeylength[a]);
 				} 
 				else {
-					rightmouth = new ImageIcon("rightmouth.png"); // �����ʮɪ��˻�
+					rightmouth = new ImageIcon("rightmouth.png"); 
 					rightmouth.paintIcon(this, g, snakexlength[a], snakeylength[a]);
 				}
 			}
 
 			if (a != 0) {
-				snakeimage = new ImageIcon("fishbody.png"); // ����
+				snakeimage = new ImageIcon("fishbody.png"); 
 				snakeimage.paintIcon(this, g, snakexlength[a], snakeylength[a]);
 			}
 		}
 
-		enemyimage = new ImageIcon("coins.gif"); // �Y�o�����ܨ���
+		enemyimage = new ImageIcon("coins.gif"); // 
 
-		if ((enemyxpos[xpos] == snakexlength[0]) && enemyypos[ypos] == snakeylength[0]) { // �Y�I������Ҧb���Y�o��
+		if ((enemyxpos[xpos] == snakexlength[0]) && enemyypos[ypos] == snakeylength[0]) { 
 			score++;
 			lengthofsnake++;
-			xpos = random.nextInt(15); // enemyxpos�@��15�Ӽƭ�
+			xpos = random.nextInt(15);
 			ypos = random.nextInt(11);
 		}
 
 		enemyimage.paintIcon(this, g, enemyxpos[xpos], enemyypos[ypos]);
 
-		for (int b = 1; b < lengthofsnake; b++)
+		for (int b = 1; b < lengthofsnake; b++) {
 			if (snakexlength[b] == snakexlength[0] && snakeylength[b] == snakeylength[0]) {
 				right = false;
 				left = false;
@@ -177,8 +178,8 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
 				g.setFont(new Font("arial", Font.BOLD, 20));
 				g.drawString("Space to RESTART", 250, 540);
-
 			}
+		}
 
 		g.dispose();
 	}
@@ -282,8 +283,8 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 		taimotion.x = -taimotion.x;
 	}
 	Random rand = new Random();
-	int i;i=rand.nextInt(2);if(i==1)
-	{
+	int i;i=rand.nextInt(2);
+	if(i==1){
 		point.x += taimotion.x * 50;
 		if (point.x < 100) {
 			point.x = 100;
@@ -291,8 +292,8 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 		if (point.x > 650) {
 			point.x = 650;
 		}
-	}if(i==0)
-	{
+	}
+	if(i==0){
 		point.y += taimotion.y * 50;
 		if (point.y < 300) {
 			point.y = 300;
@@ -305,12 +306,11 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 	System.out.println(point.x+","+point.y);
 
 	//
-	for(
-	int r = lengthoftai - 1;r>=0;r--)
+	for(int r = lengthoftai - 1;r>=0;r--)
 	{
 		taixlength[r + 1] = taixlength[r];
-	}for(
-	int r = lengthoftai;r>=0;r--)
+	}
+	for(int r = lengthoftai;r>=0;r--)
 	{
 		if (r == 0) {
 			// taiylength[r] = taiylength[r] + 50;
@@ -324,12 +324,11 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 	}
 
 	//
-	for(
-	int r = lengthoftai - 1;r>=0;r--)
+	for(int r = lengthoftai - 1;r>=0;r--)
 	{
 		taiylength[r + 1] = taiylength[r];
-	}for(
-	int r = lengthoftai;r>=0;r--)
+	}
+	for(int r = lengthoftai;r>=0;r--)
 	{
 		if (r == 0) {
 			// taixlength[r] = taixlength[r] - 50;
@@ -351,7 +350,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 	}
 
 	@Override
-	public void keyPressed(KeyEvent e) { // ��L�ާ@�D
+	public void keyPressed(KeyEvent e) { 
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 			moves=0;
 			score=0;
