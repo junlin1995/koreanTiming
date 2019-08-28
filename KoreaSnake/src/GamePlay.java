@@ -154,7 +154,10 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 			}
 		}
 
-		enemyimage = new ImageIcon("coins.gif"); // 
+		
+		
+		
+		enemyimage = new ImageIcon("coins.gif"); 
 
 		if ((enemyxpos[xpos] == snakexlength[0]) && enemyypos[ypos] == snakeylength[0]) { 
 			score++;
@@ -185,9 +188,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 	}
 
 	private ImageIcon ImageIcon(String string) {
-		// TODO Auto-generated method stub
 		return null;
-
 	}
 
 	@Override
@@ -343,9 +344,11 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
 }
 
+	
+	
+	// keyBoard controll
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -414,7 +417,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
+		
 
 	}
 }
