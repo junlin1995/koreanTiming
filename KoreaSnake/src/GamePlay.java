@@ -15,14 +15,12 @@ import javax.swing.Timer;
 public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
 	private static final Color Color = null;
-	private int[] snakexlength = new int[750];
-	private int[] snakeylength = new int[750];
 	
-	private int[] taixlength = new int[750];
-	private int[] taiylength = new int[750];
+	
+	
 
-	Point point = new Point(150, 300);
-	Point taimotion = new Point(1, 1);
+	
+	
 
 	private boolean left = false;
 	private boolean right = false;
@@ -54,12 +52,12 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
 	private int score = 0;
 
-	private int moves = 0;
+	
 
-	private ImageIcon titleImage;
-	private ImageIcon playImage;
-	private ImageIcon tai;
-	private ImageIcon bomb;
+	
+	
+	
+	
 
 	public GamePlay() {
 
@@ -70,6 +68,11 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 		timer.start();
 	}
 
+	private int[] snakexlength = new int[750];
+	private int[] snakeylength = new int[750];
+	private int[] taixlength = new int[750];
+	private int[] taiylength = new int[750];
+	private int moves = 0;
 	public void paint(Graphics g) {
 
 		if (moves == 0) {
@@ -81,6 +84,9 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 			snakeylength[1] = 250;
 			snakeylength[0] = 250;
 
+			
+		}
+		if(moves == 0) {
 			taixlength[0] = 650;
 			taixlength[1] = 600;
 
@@ -88,12 +94,16 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 			taiylength[1] = 600;
 		}
 
+		
+		
+		//private ImageIcon titleImage;
 		// draw the title image
-		titleImage = new ImageIcon("title.png");
+		ImageIcon titleImage = new ImageIcon("title.png");
 		titleImage.paintIcon(this, g, 24, 0);
 
 		// draw border for gameplay
-		playImage = new ImageIcon("universe1.png"); 
+		
+		ImageIcon playImage = new ImageIcon("universe1.png"); 
 		playImage.paintIcon(this, g, 24, 215);
 
 		// draw scores
@@ -106,10 +116,13 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 		g.setFont(new Font("arial", Font.PLAIN, 14));
 		g.drawString("Length:  " + lengthofsnake, 550, 170);
 
-		playImage = new ImageIcon("bomb.gif");
-
+		
+	
+		
+		
 		// draw tai
-		tai = new ImageIcon("tai.gif");
+		playImage = new ImageIcon("bomb.gif");
+		ImageIcon tai = new ImageIcon("tai.gif");
 		for (int b = 0; b < lengthoftai; b++) {
 			if (b == 0) {
 				tai = new ImageIcon("tai.gif");
@@ -270,6 +283,8 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 	
 
 	// tai
+	Point point = new Point(150, 300);
+	Point taimotion = new Point(1, 1);
 	boolean change_taimotion_y=false, change_taimotion_x=false;
 	if(point.y>=700||point.y<=300){
 		change_taimotion_y = true;
