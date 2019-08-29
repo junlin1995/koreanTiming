@@ -25,7 +25,9 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 	private int left=2;
 	private int right=3;
 	
-
+	Point point = new Point(150, 350);
+	Point taimotion = new Point(1, 1);
+	
 	private ImageIcon mouth;
 
 
@@ -240,9 +242,8 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 	
 
 	// tai
-	Point point = new Point(150, 300);
-	Point taimotion = new Point(1, 1);
 	boolean change_taimotion_y=false, change_taimotion_x=false;
+	
 	if(point.y>=700||point.y<=300){
 		change_taimotion_y = true;
 	}
