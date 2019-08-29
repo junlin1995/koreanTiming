@@ -17,6 +17,8 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 	private static final Color Color = null;
 	
 	KoreaFish koreasnake = new KoreaFish();
+	KuoTiming kuo = new KuoTiming();
+	
 	
 	private int up = 0;
 	private int down = 1;
@@ -47,15 +49,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
 	private int score = 0;
 
-	
-
-	
-	
-	
-	
-
 	public GamePlay() {
-
 		addKeyListener(this);
 		setFocusable(true);
 		setFocusTraversalKeysEnabled(false);
@@ -73,8 +67,6 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 		if (moves == 0) {
 			snakexlength = koreasnake.getXlength();
 			snakeylength = koreasnake.getYlength();
-
-			
 		}
 		if(moves == 0) {
 			taixlength[0] = 650;
@@ -123,8 +115,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 			}
 			if (b != 0) {
 				taibodyimage = new ImageIcon("bomb.gif"); 
-				// taibodyimage.paintIcon(this, g, taixlength[b], taiylength[b]);
-
+				//taibodyimage.paintIcon(this, g, taixlength[b], taiylength[b]);
 			}
 		}
 
@@ -132,7 +123,6 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 			if (a == 0) { 
 				mouth = new ImageIcon(koreasnake.getDirectionString());
 				mouth.paintIcon(this, g, koreasnake.getXlength()[a], koreasnake.getYlength()[a]);
-				
 			}
 
 			if (a != 0) {
@@ -161,8 +151,6 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 				down = 1;
 				left = 2;
 				right = 3;
-				
-				
 				g.setColor(Color.white);
 				g.setFont(new Font("arial", Font.BOLD, 50));
 				g.drawString("Game Over", 200, 500);
@@ -171,12 +159,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 				g.drawString("Space to RESTART", 250, 540);
 			}
 		}
-
 		g.dispose();
-	}
-
-	private ImageIcon ImageIcon(String string) {
-		return null;
 	}
 
 	@Override
@@ -263,14 +246,13 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 	if(point.y>=700||point.y<=300){
 		change_taimotion_y = true;
 	}
-	if(point.x<=100||point.x>=650)
-	{
+	if(point.x<=100||point.x>=650){
 		change_taimotion_x = true;
-	}if(change_taimotion_y)
-	{
+	}
+	if(change_taimotion_y){
 		taimotion.y = -taimotion.y;
-	}if(change_taimotion_x)
-	{
+	}
+	if(change_taimotion_x){
 		taimotion.x = -taimotion.x;
 	}
 	Random rand = new Random();
@@ -397,6 +379,5 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 	@Override
 	public void keyReleased(KeyEvent e) {
 		
-
 	}
 }
