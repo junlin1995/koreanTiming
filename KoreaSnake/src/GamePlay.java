@@ -18,11 +18,11 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 	
 	KoreaFish koreasnake = new KoreaFish();
 	
+	private int up = 0;
+	private int down = 1;
+	private int left=2;
+	private int right=3;
 	
-	private boolean left = false;
-	private boolean right = false;
-	private boolean up = false;
-	private boolean down = false;
 
 	private ImageIcon mouth;
 
@@ -157,11 +157,12 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
 		for (int b = 1; b < koreasnake.length(); b++) {
 			if (snakexlength[b] == snakexlength[0] && snakeylength[b] == snakeylength[0]) {
-				right = false;
-				left = false;
-				up = false;
-				down = false;
-
+				up = 0;
+				down = 1;
+				left = 2;
+				right = 3;
+				
+				
 				g.setColor(Color.white);
 				g.setFont(new Font("arial", Font.BOLD, 50));
 				g.drawString("Game Over", 200, 500);
@@ -183,7 +184,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 		timer.start();
 		System.out.println(e.getActionCommand());
 
-		if (right) {
+		if (right==koreasnake.getDirection()) {
 
 			for (int r = koreasnake.length() - 1; r >= 0; r--) {
 				snakeylength[r + 1] = snakeylength[r];
@@ -203,7 +204,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 			repaint();
 		}
 
-		if (left) {
+		if (left==koreasnake.getDirection()) {
 			for (int r = koreasnake.length() - 1; r >= 0; r--) {
 				snakeylength[r + 1] = snakeylength[r];
 			}
@@ -220,7 +221,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 			repaint();
 		}
 
-		if (up) {
+		if (up==koreasnake.getDirection()) {
 			for (int r = koreasnake.length() - 1; r >= 0; r--) {
 				snakexlength[r + 1] = snakexlength[r];
 			}
@@ -237,7 +238,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 			repaint();
 		}
 
-		if (down) {
+		if (down==koreasnake.getDirection()) {
 			for (int r = koreasnake.length() - 1; r >= 0; r--) {
 				snakexlength[r + 1] = snakexlength[r];
 			}
@@ -351,55 +352,45 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 		}
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			moves++;
-			right = true;
-			if (!left) {
-				right = true;
+			//right = true;
+			if (left!=koreasnake.getDirection()) {//get          //if (!left)
+				koreasnake.setDirection(3);//set
 			} else {
-				right = false;
-				left = true;
+				koreasnake.setDirection(2);//set
 			}
-			up = false;
-			down = false;
 		}
 
 		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 			moves++;
-			left = true;
-			if (!right) {
-				left = true;
+			//left = true;
+			if (right!=koreasnake.getDirection()) {
+				koreasnake.setDirection(2);
 			} else {
-				left = false;
-				right = true;
+				//left = false;
+				koreasnake.setDirection(3);
 			}
-			up = false;
-			down = false;
+			
 		}
 
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
 			moves++;
-			up = true;
-			if (!down) {
-				up = true;
+			//up = true;
+			if (down!=koreasnake.getDirection()) {
+				koreasnake.setDirection(0);
 			} else {
-				up = false;
-				down = true;
+				//up = false;
+				koreasnake.setDirection(1);
 			}
-			left = false;
-			right = false;
 		}
 
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 			moves++;
-			down = true;
-			if (!up) {
-				down = true;
+			//down = true;
+			if (up!=koreasnake.getDirection()) {
+				koreasnake.setDirection(1);
 			} else {
-				up = true;
-				down = false;
-				
+				koreasnake.setDirection(0);
 			}
-			left = false;
-			right = false;
 		}
 	}
 
